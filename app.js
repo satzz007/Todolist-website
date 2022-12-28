@@ -45,6 +45,15 @@ const listSchema = {
 const List = mongoose.model("List", listSchema);
 
 
+let port=process.env.PORT;
+if(port == null || port ==""){
+  port=3000;
+}
+app.listen(port,function(){
+  console.log("started");
+})
+
+
 app.get("/", function(req, res) {
 
   Item.find({}, function(err, foundItems){
